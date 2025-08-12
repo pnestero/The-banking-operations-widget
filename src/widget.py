@@ -1,10 +1,9 @@
 from src.masks import get_mask_card_number, get_mask_account
-
+import datetime
 
 def mask_card_number(sistem_number_card: str) -> str:
     """Маскировка карты"""
-    if (("Счёт" in sistem_number_card) or ("счёт" in sistem_number_card)
-    or ("Cчет" in sistem_number_card) or ("счет" in sistem_number_card)):
+    if "Счет" in sistem_number_card:
         sistem_card_str = f"{sistem_number_card[:-21]}"
         number_card_str = f"{sistem_number_card[-20:]}"
         number_card_str = get_mask_account(number_card_str)
@@ -18,13 +17,20 @@ def mask_card_number(sistem_number_card: str) -> str:
 
 
 print(mask_card_number("Visa Platinum 7000792289606361"))
+print(mask_card_number("Счет 64686473678894779589"))
+
+from datetime import datetime
 
 
+def get_date(date_str):
+    date_obj = datetime.fromisoformat(date_str)
+    # Переводим в формат "ДД.ММ.ГГГГ"
+    formatted_date = date_obj.strftime('%d.%m.%Y')
+    return formatted_date
 
-
-
-
-
+input_date = "2024-03-11T02:26:18.671407"
+output_date = get_date(input_date)
+print(output_date)
 
 
 
