@@ -1,5 +1,8 @@
-def get_mask_card_number(number_card: int) -> str:
-    """маскировка номера банковской карты"""
+from typing import Union
+
+
+def get_mask_card_number(number_card: Union[str, int]) -> str:
+    """Маскировка номера банковской карты"""
     number_card_str = str(number_card)
     if len(number_card_str) != 16:
         raise ValueError("Неправильный номер карты")
@@ -7,8 +10,8 @@ def get_mask_card_number(number_card: int) -> str:
     return result
 
 
-def get_mask_account(number_account: int) -> str:
-    """маскировка номера банковского счета"""
+def get_mask_account(number_account: Union[str, int]) -> str:
+    """Маскировка номера банковского счета"""
     number_account_str = str(number_account)
     if len(number_account_str) != 20:
         raise ValueError("Неправильный номер аккаунта")
