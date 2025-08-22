@@ -13,7 +13,7 @@ def filter_by_state(users_id: list[dict], state: str = "EXECUTED") -> list[dict]
 
 def sort_by_date(users_id: list[dict], decreasing: bool = True) -> list[dict]:
     """ Сортировка по дате операции"""
-    sorted_by_list_date = sorted(users_id, key=lambda x: x.get("date"), reverse=decreasing)
+    sorted_by_list_date = sorted(users_id, key=lambda x: x.get("date", ""), reverse=decreasing)
     return sorted_by_list_date
 
 
