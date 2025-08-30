@@ -1,7 +1,7 @@
 from typing import Union
 
 
-def get_mask_card_number(number_card: Union[str, int]) -> str:
+def get_mask_card_number(number_card: Union[int]) -> str:
     """Маскировка номера банковской карты"""
     number_card_str = str(number_card)
     if len(number_card_str) != 16:
@@ -10,7 +10,7 @@ def get_mask_card_number(number_card: Union[str, int]) -> str:
     return result
 
 
-def get_mask_account(number_account: Union[str, int]) -> str:
+def get_mask_account(number_account: Union[int]) -> str:
     """Маскировка номера банковского счета"""
     number_account_str = str(number_account)
     if len(number_account_str) != 20:
@@ -20,8 +20,8 @@ def get_mask_account(number_account: Union[str, int]) -> str:
 
 
 if __name__ == "__main__":
-    # number_card_1 = int(input("Enter card number: ")) Для ввода вручную
-    # number_account = int(input("Enter account number: ")) Для ввода вручную
+    # number_card_1 = int(input("Enter card number: ")) #Для ввода вручную
+    # number_account = int(input("Enter account number: ")) #Для ввода вручную
 
     number_card_1 = 1234123412341234
     number_account = 73654108430135874305

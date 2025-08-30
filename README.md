@@ -17,7 +17,7 @@ Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Conte
 curl -sSL https://install.python-poetry.org | python -
 ```
 4. Клонировать репозиторий по ссылке [GitHub].
-```
+``` 
 https://github.com/pnestero/The-banking-operations-widget
 ```
 
