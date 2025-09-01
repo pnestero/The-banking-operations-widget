@@ -30,8 +30,6 @@ def test_get_mmt_digit_input():
         get_mask_card_number("1234abcd5678efgh")  # смесь цифр и букв
 
 
-
-
 # Тестирование файла src.masks функции get_mask_account
 def test_get_mask_account():
     """Тест на кодирование номера"""
@@ -49,6 +47,7 @@ def test_get_mask_account_string_without_data():
     with pytest.raises(ValueError):
         get_mask_account("")
         get_mask_account(" ")
+
 
 def test_get_mask_account_input():
     """Тест нечислового ввода"""
