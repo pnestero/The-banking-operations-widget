@@ -9,8 +9,7 @@ from src.processing import filter_by_state, sort_by_date
     {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},
     {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}
 ])
-
-def test_filter_by_state(transaction, expected):
+def test_filter_by_state(transaction, expected, states):
     """Тест фильтрации"""
     assert filter_by_state(transaction, expected) == ([
         {'id': 594226727, 'state': 'CANCELED', 'date': '2018-09-12T21:27:25.241689'},

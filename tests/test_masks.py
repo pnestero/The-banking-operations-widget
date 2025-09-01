@@ -4,6 +4,7 @@ from src.masks import get_mask_card_number, get_mask_account
 
 
 # Тестирование файла src.masks функции get_mask_card_number
+@pytest.mark.parametrize()
 def test_get_mask_card_number():
     """Тест на кодирование номера"""
     assert get_mask_card_number("1111222233334444") == "1111 22** **** 4444"
