@@ -1,7 +1,4 @@
-from typing import Union
-
-
-def get_mask_card_number(number_card: Union[int]) -> str:
+def get_mask_card_number(number_card: int) -> str:
     """Маскировка номера банковской карты
     :rtype: str
     """
@@ -15,7 +12,7 @@ def get_mask_card_number(number_card: Union[int]) -> str:
     return result
 
 
-def get_mask_account(number_account: Union[int]) -> str:
+def get_mask_account(number_account: int) -> str:
     """Маскировка номера банковского счета"""
     number_account_str = str(number_account)
     if len(number_account_str) != 20:
