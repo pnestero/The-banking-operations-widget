@@ -23,11 +23,11 @@ def get_mask_account(number_account: int) -> str:
     return result
 
 
-if __name__ == "__main__":
-    # number_card_1 = int(input("Enter card number: ")) #Для ввода вручную
-    # number_account = int(input("Enter account number: ")) #Для ввода вручную
-
-    number_card_1 = 1111222233334444
-    number_account = 73654108430135874305
-    print(get_mask_card_number(number_card_1))
-    print(get_mask_account(number_account))
+# if __name__ == "__main__":
+#     number_card_1 = int(input("Enter card number: ")) #Для ввода вручную
+#     number_account = int(input("Enter account number: ")) #Для ввода вручную
+#
+#     number_card_1 = 1111222233334444
+#     number_account = 73654108430135874305
+#     print(get_mask_card_number(number_card_1))
+#     print(get_mask_account(number_account))

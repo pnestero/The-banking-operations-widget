@@ -46,11 +46,13 @@ def test_get_mask_account_valid(account_number: str, expected: str) -> None:
 @pytest.mark.parametrize("invalid_account_number", [
     "736541084301358743",  # 18 цифр
     "1234567890",  # 10 цифр
+    "1", #1 цифра
     "",  # пустая строка
     " ",  # пробел
+    "     ",  # 5 пробелов
     "abcdefghijklmnop",  # буквы
     "1234abcd5678efgh",  # цифры и буквы
-    "!@#$%^&*()_+{}|:",  # символы
+    "!@#$%^&*()_+{}|:"  # символы
 ])
 def test_get_mask_account_invalid(invalid_account_number: str) -> None:
     """Тест на обработку невалидных номеров счетов"""

@@ -9,3 +9,4 @@ def card_number() -> str:
 @pytest.fixture
 def mask_account() -> str:
     return "**4305"
+
