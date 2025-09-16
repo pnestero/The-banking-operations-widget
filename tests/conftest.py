@@ -72,10 +72,20 @@ def list_operation() -> list[Dict[str, Any]]:
 
 # Фикстура sort_by_date в файле processing.py
 @pytest.fixture
-def sort_data_operation() -> list[Dict[str, Any]]:
+def sort_data_operation() -> list[dict[str, Any]]:
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},
         {"id": 594226727, "state": "CANCELED", "date": "2018-09-12T21:27:25.241689"},
         {"id": 939719570, "state": "EXECUTED", "date": "2018-06-30T02:08:58.425572"},
+    ]
+
+
+@pytest.fixture
+def transactions() -> list[dict[str, Any]]:
+    """Фикстура для filter_by_currency, transaction_descriptions в файле generators.py"""
+    return [
+        {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}, "description": "Payment"},
+        {"id": 2, "operationAmount": {"amount": "200", "currency": {"code": "EUR"}}, "description": "Transfer"},
+        {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Refund"},
     ]
