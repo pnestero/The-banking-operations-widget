@@ -59,9 +59,9 @@ def same_date_data() -> list[Dict[str, Any]]:
     ]
 
 
-# Фикстура для filter_by_state в файле processing.py
 @pytest.fixture
 def list_operation() -> list[Dict[str, Any]]:
+    """Фикстура для filter_by_state в файле processing.py"""
     return [
         {"id": 1, "state": "EXECUTED", "date": "2023-10-15T12:30:45.123456", "amount": 100.50},
         {"id": 4, "state": "EXECUTED", "date": "2023-10-12T18:20:15.321654", "amount": 75.25},
@@ -69,10 +69,10 @@ def list_operation() -> list[Dict[str, Any]]:
         {"id": 8, "state": "EXECUTED", "date": "2023-10-08T13:15:20.456123", "amount": 200.00},
     ]
 
-
-# Фикстура sort_by_date в файле processing.py
+# Фикстуры для файла generators.py
 @pytest.fixture
 def sort_data_operation() -> list[dict[str, Any]]:
+    """Фикстура sort_by_date в файле processing.py"""
     return [
         {"id": 41428829, "state": "EXECUTED", "date": "2019-07-03T18:35:29.512364"},
         {"id": 615064591, "state": "CANCELED", "date": "2018-10-14T08:21:33.419441"},

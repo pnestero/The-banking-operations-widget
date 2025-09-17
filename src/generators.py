@@ -23,6 +23,7 @@ def transaction_descriptions(transactions: list[dict]) -> Generator:
 
 
 def card_number_generator(start: int, stop: int) -> list:
+    """Генерирует номер карты в заданном диапазоне"""
     if not isinstance(start, int) or not isinstance(stop, int):
         raise TypeError("Некорректный номер")
     if start < 1 or stop > 9999999999999999 or start > stop:
