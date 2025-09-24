@@ -1,8 +1,9 @@
 from functools import wraps
-from typing import Callable, Any
+from typing import Any, Callable
 
 
 def log(filename: object = None) -> Callable:
+    """Декоратор для записи результата в консоль или в указанный файл, если таковой задан"""
     def my_decorator(func) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Any:
