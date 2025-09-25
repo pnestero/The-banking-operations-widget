@@ -1,6 +1,6 @@
 import pytest
 
-from src.widget import mask_card_number, get_date
+from src.widget import get_date, mask_card_number
 
 
 # Тестирование файла src.masks функции mask_card_number
