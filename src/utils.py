@@ -1,7 +1,8 @@
 import json
+from typing import Any
 
 
-def get_transaction(file):
+def get_transaction(file: str) -> list[Any] | bool | Any:
     """Принимает файл JSON и возвращает список словарей"""
     try:
         with open(file, "r", encoding='utf-8') as transaction:
@@ -19,18 +20,7 @@ def get_transaction(file):
         print("Файл не найден")
     return False
 
-    sum_transactions = sum(transaction[amount].value())
-    print(sum_transactions)
-
-# def sum_transactions(transaction):
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
-    get_transaction(file="D:\\PythonProject\\PythonProject_NPR\\data/operations.json")
+    result = get_transaction(file="D:\\PythonProject\\PythonProject_NPR\\data/operations.json")
+    print(result)
