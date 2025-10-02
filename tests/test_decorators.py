@@ -10,6 +10,7 @@ def test_log(capsys: pytest.CaptureFixture) -> None:
 
     @log()
     def func(x, y):
+        """Тест log file на вывод в консоль сложения"""
         return x + y
 
     func(1, 2)

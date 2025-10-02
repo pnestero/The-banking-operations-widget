@@ -68,6 +68,7 @@ def list_operation() -> list[Dict[str, Any]]:
         {"id": 8, "state": "EXECUTED", "date": "2023-10-08T13:15:20.456123", "amount": 200.00},
     ]
 
+
 # Фикстуры для файла generators.py
 @pytest.fixture
 def sort_data_operation() -> list[dict[str, Any]]:
