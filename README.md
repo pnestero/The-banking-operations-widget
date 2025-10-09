@@ -80,7 +80,7 @@ https://github.com/pnestero/The-banking-operations-widget
 
 ### В проекте созданы тестовые функции.
 
-Тесты записаны в папке "/tests". В каждом файле папки "/tests" созданы тесты, в том числе parametrize, fixture, decorators.
+Тесты записаны в папке "/tests". В каждом файле папки "/tests" созданы тесты, в том числе parametrize, fixture, decorators, mock и patch.
 
 ## Для удобства определения для какой функции написаны тесты, в комментариях и в Docstring есть пояснения к каждой функции
 
