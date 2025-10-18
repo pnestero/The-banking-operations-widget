@@ -7,14 +7,15 @@ from src.generators import card_number_generator, filter_by_currency, transactio
 def test_filter_by_currency(transactions: list) -> None:
     """Тест на корректный вывод данных по валюте (currency = USD)"""
     assert list(filter_by_currency(transactions, "USD")) == [
-        {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}, "description": "Payment"},
         {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Refund"},
     ]
 
 
 def test_filter_by_currency_no_currency(transactions: list) -> None:
     """Тест на отсутствие нужной валюты"""
-    assert list(filter_by_currency(transactions, "RUB")) == ([])
+    assert list(filter_by_currency(transactions, "RUB")) == [
+        {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "RUB"}}, "description": "Payment"},
+    ]
 
 
 def test_filter_by_currency_no_data() -> None:

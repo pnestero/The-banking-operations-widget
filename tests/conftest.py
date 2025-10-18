@@ -68,6 +68,7 @@ def list_operation() -> list[Dict[str, Any]]:
         {"id": 8, "state": "EXECUTED", "date": "2023-10-08T13:15:20.456123", "amount": 200.00},
     ]
 
+
 # Фикстуры для файла generators.py
 @pytest.fixture
 def sort_data_operation() -> list[dict[str, Any]]:
@@ -84,7 +85,7 @@ def sort_data_operation() -> list[dict[str, Any]]:
 def transactions() -> list[dict[str, Any]]:
     """Фикстура для filter_by_currency, transaction_descriptions в файле generators.py"""
     return [
-        {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "USD"}}, "description": "Payment"},
+        {"id": 1, "operationAmount": {"amount": "100", "currency": {"code": "RUB"}}, "description": "Payment"},
         {"id": 2, "operationAmount": {"amount": "200", "currency": {"code": "EUR"}}, "description": "Transfer"},
         {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Refund"},
     ]

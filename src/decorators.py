@@ -4,6 +4,7 @@ from typing import Any, Callable
 
 def log(filename: object = None) -> Callable:
     """Декоратор для записи результата в консоль или в указанный файл, если таковой задан"""
+
     def my_decorator(func) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs) -> Any:
@@ -29,6 +30,7 @@ def log(filename: object = None) -> Callable:
 
 
 if __name__ == "__main__":
+
     @log(filename="mylog.txt")
     def my_function(x, y):
         """
@@ -40,7 +42,6 @@ if __name__ == "__main__":
         в файл /scr/mylog.txt или выведение результата в консоль если файл отсутствует
         """
         return x + y
-
 
     qwe = my_function(1, 2)
     # print(qwe)
