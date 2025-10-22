@@ -28,7 +28,7 @@ def test_get_mask_card_valid(card_number: list[tuple[str, str]]) -> None:
     [
         ("11112222333344", ValueError),  # 14 цифр
         ("1", ValueError),  # 1 цифра
-        ("111122223333444455", ValueError),  # 18 ци
+        ("111122223333444455", ValueError),  # 18 цифр
         ("", ValueError),
         (" ", ValueError),
         ("    ", ValueError),
