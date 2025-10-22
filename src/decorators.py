@@ -32,7 +32,7 @@ def log(filename: object = None) -> Callable:
 if __name__ == "__main__":
 
     @log(filename="mylog.txt")
-    def my_function(x, y):
+    def my_function(x: Any, y: Any) -> None:
         """
         Функция суммирует 2 числа и записывает результат в /scr/mylog.txt
         Если не задан файл для записи, то результат будет выведен в консоль

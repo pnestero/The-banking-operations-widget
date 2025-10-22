@@ -23,6 +23,7 @@ def test_log_file():
 
     @log(filename="test_log.txt")
     def func(x, y):
+        """Проверка на правильность сложения"""
         return x + y
 
     func(1, 2)
@@ -36,6 +37,7 @@ def test_logs_errors(capsys: pytest.CaptureFixture) -> None:
 
     @log()
     def func(x, y):
+        """Если какая-либо переменная = 0"""
         if x == 0 or y == 0:
             raise ValueError("Переменная не должна быть равна нулю")
         return x + y

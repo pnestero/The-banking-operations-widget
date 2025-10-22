@@ -44,4 +44,4 @@ def currency_conversion(transaction) -> float:
 if __name__ == "__main__":
     sum_rub = transactions_sum(file="D:\\PythonProject\\PythonProject_NPR\\data/operations.json")
 
-    print(f'Итого:{sum_rub}рублей')
+    print(f"Итого:{sum_rub}рублей")
