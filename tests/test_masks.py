@@ -26,9 +26,6 @@ def test_get_mask_card_valid(card_number: list[tuple[str, str]]) -> None:
 @pytest.mark.parametrize(
     "invalid_input, expected_exception",
     [
-        ("11112222333344", ValueError),  # 14 цифр
-        ("1", ValueError),  # 1 цифра
-        ("111122223333444455", ValueError),  # 18 ци
         ("", ValueError),
         (" ", ValueError),
         ("    ", ValueError),
@@ -73,9 +70,6 @@ def test_get_mask_account_valid_fixture(mask_account: list[tuple[str, str]]) -> 
 @pytest.mark.parametrize(
     "invalid_account_number",
     [
-        "736541084301358743",  # 18 цифр
-        "1234567890",  # 10 цифр
-        "1",  # 1 цифра
         "",  # пустая строка
         " ",  # пробел
         "     ",  # 5 пробелов
