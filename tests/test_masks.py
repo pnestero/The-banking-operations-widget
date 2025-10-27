@@ -82,3 +82,17 @@ def test_get_mask_account_invalid(invalid_account_number: str) -> None:
     """Тест на обработку невалидных номеров счетов"""
     with pytest.raises(ValueError):
         get_mask_account(int(invalid_account_number))
+
+
+def test_get_mask_card_number_error() -> None:
+    test_number = get_mask_card_number("123123")
+    assert test_number == "Ошибка: номер карты должен содержать 16 цифр"
+    test_number = get_mask_card_number("sasdassadasdasda")
+    assert test_number == "Ошибка: номер карты должен содержать только цифры"
+
+
+def test_get_mask_account_error() -> None:
+    test_number = get_mask_account("123123")
+    assert test_number == "Ошибка: номер счёта должен содержать 20 цифр"
+    test_number = get_mask_account("sasdassadasdasda1234")
+    assert test_number == "Ошибка: номер счёта должен содержать только цифры"

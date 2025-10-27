@@ -9,7 +9,7 @@ def test_log(capsys: pytest.CaptureFixture) -> None:
     """Тест декоратора log с выводом в консоль"""
 
     @log()
-    def func(x, y):
+    def func(x: int, y: int) -> int:
         """Тест log file на вывод в консоль сложения"""
         return x + y
 
@@ -18,7 +18,7 @@ def test_log(capsys: pytest.CaptureFixture) -> None:
     assert "func ok\n" == captured.out
 
 
-def test_log_file():
+def test_log_file() -> None:
     """Тест log file с записью в txt"""
 
     @log(filename="test_log.txt")

@@ -2,12 +2,12 @@ from functools import wraps
 from typing import Any, Callable
 
 
-def log(filename: object = None) -> Callable:
+def log(filename: str | None = None) -> Callable:
     """Декоратор для записи результата в консоль или в указанный файл, если таковой задан"""
 
-    def my_decorator(func) -> Callable:
+    def my_decorator(func: Callable) -> Callable:
         @wraps(func)
-        def wrapper(*args, **kwargs) -> Any:
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             try:
                 result = func(*args, **kwargs)
                 if filename is None:
@@ -27,22 +27,3 @@ def log(filename: object = None) -> Callable:
         return wrapper
 
     return my_decorator
-
-
-if __name__ == "__main__":
-
-    @log(filename="mylog.txt")
-    def my_function(x: Any, y: Any) -> None:
-        """
-        Функция суммирует 2 числа и записывает результат в /scr/mylog.txt
-        Если не задан файл для записи, то результат будет выведен в консоль
-        :param x: первое значение
-        :param y: второе значение
-        :return: взвращает успешное/не успешное выполнение функции с записью
-        в файл /scr/mylog.txt или выведение результата в консоль если файл отсутствует
-        """
-        return x + y
-
-    qwe = my_function(1, 2)
-    # print(qwe)
-    # print(my_function.__doc__)

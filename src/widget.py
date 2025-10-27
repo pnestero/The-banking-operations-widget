@@ -21,11 +21,3 @@ def get_date(date_str: str) -> str:
     """Форматирование даты в формат ДД.ММ.ГГГГ"""
     date_obj = datetime.fromisoformat(date_str)
     return date_obj.strftime("%d.%m.%Y")
-
-
-if __name__ == "__main__":
-    input_date = "2024-03-11T02:26:18.671407"
-    output_date = get_date(input_date)
-    print(output_date)
-    print(mask_card_number("Visa Platinum 8990922113665229"))
-    print(mask_card_number("Счет 64686473678894779589"))
