@@ -5,21 +5,20 @@ from dotenv import load_dotenv
 
 from src.utils import get_transaction
 
-load_dotenv("../.env")
+load_dotenv("D:/PythonProject/PythonProject_NPR/.env")
 API_KEY = os.getenv("API_KEY")
 
 
 def transactions_sum(file: str) -> float:
     """Принимает транзакции и возвращает их по валюте"""
     transactions_list = get_transaction(file)
-    total_sum_rub = 0
-
+    total_sum_rub = 0.0
     for i, transaction in enumerate(transactions_list):
         total_sum_rub += currency_conversion(transaction)
     return total_sum_rub
 
 
-def currency_conversion(transaction) -> float:
+def currency_conversion(transaction: dict) -> float:
     """Конвертирование валюты в рубли"""
     headers = {"apikey": API_KEY}
 
@@ -39,9 +38,3 @@ def currency_conversion(transaction) -> float:
         return round((float(result)), 2)
     else:
         return 0
-
-
-if __name__ == "__main__":
-    sum_rub = transactions_sum(file="D:\\PythonProject\\PythonProject_NPR\\data/operations.json")
-
-    print(f"Итого:{sum_rub}рублей")

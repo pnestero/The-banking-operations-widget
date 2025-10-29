@@ -26,9 +26,6 @@ def test_get_mask_card_valid(card_number: list[tuple[str, str]]) -> None:
 @pytest.mark.parametrize(
     "invalid_input, expected_exception",
     [
-        ("11112222333344", ValueError),  # 14 цифр
-        ("1", ValueError),  # 1 цифра
-        ("111122223333444455", ValueError),  # 18 ци
         ("", ValueError),
         (" ", ValueError),
         ("    ", ValueError),
@@ -73,9 +70,6 @@ def test_get_mask_account_valid_fixture(mask_account: list[tuple[str, str]]) -> 
 @pytest.mark.parametrize(
     "invalid_account_number",
     [
-        "736541084301358743",  # 18 цифр
-        "1234567890",  # 10 цифр
-        "1",  # 1 цифра
         "",  # пустая строка
         " ",  # пробел
         "     ",  # 5 пробелов
@@ -88,3 +82,17 @@ def test_get_mask_account_invalid(invalid_account_number: str) -> None:
     """Тест на обработку невалидных номеров счетов"""
     with pytest.raises(ValueError):
         get_mask_account(int(invalid_account_number))
+
+
+def test_get_mask_card_number_error() -> None:
+    test_number = get_mask_card_number("123123")
+    assert test_number == "Ошибка: номер карты должен содержать 16 цифр"
+    test_number = get_mask_card_number("sasdassadasdasda")
+    assert test_number == "Ошибка: номер карты должен содержать только цифры"
+
+
+def test_get_mask_account_error() -> None:
+    test_number = get_mask_account("123123")
+    assert test_number == "Ошибка: номер счёта должен содержать 20 цифр"
+    test_number = get_mask_account("sasdassadasdasda1234")
+    assert test_number == "Ошибка: номер счёта должен содержать только цифры"

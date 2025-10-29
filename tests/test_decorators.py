@@ -9,7 +9,7 @@ def test_log(capsys: pytest.CaptureFixture) -> None:
     """Тест декоратора log с выводом в консоль"""
 
     @log()
-    def func(x, y):
+    def func(x: int, y: int) -> int:
         """Тест log file на вывод в консоль сложения"""
         return x + y
 
@@ -18,11 +18,11 @@ def test_log(capsys: pytest.CaptureFixture) -> None:
     assert "func ok\n" == captured.out
 
 
-def test_log_file():
+def test_log_file() -> None:
     """Тест log file с записью в txt"""
 
     @log(filename="test_log.txt")
-    def func(x, y):
+    def func(x: int, y: int) -> int:
         """Проверка на правильность сложения"""
         return x + y
 
@@ -36,7 +36,7 @@ def test_logs_errors(capsys: pytest.CaptureFixture) -> None:
     """Тест log при исключении, например: переменная не == 0"""
 
     @log()
-    def func(x, y):
+    def func(x: int, y: int) -> int:
         """Если какая-либо переменная = 0"""
         if x == 0 or y == 0:
             raise ValueError("Переменная не должна быть равна нулю")
