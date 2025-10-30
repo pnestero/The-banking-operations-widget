@@ -25,7 +25,7 @@ def banking_operations(data_operations: list[dict], categories: list) -> dict[st
     где ключ = названия категорий, а значение = количество операций
     :param data_operations: список словарей с данными о банковских операциях
     :param categories: список категорий операций
-    :return:
+    :return: словарь (ключ = названия категорий, значение = количество операций)
     """
     result = {category: 0 for category in categories}
 
