@@ -1,7 +1,5 @@
 import re
-from collections import defaultdict, Counter
-from typing import Any
-from collections import Counter
+from typing import Counter
 
 
 def search_operations(operations: list[dict], search: str) -> list[dict]:
@@ -27,14 +25,14 @@ def banking_operations(data_operations: list[dict], categories: list) -> dict[st
     :param categories: список категорий операций
     :return: словарь (ключ = названия категорий, значение = количество операций)
     """
-    result = {category: 0 for category in categories}
+    found_categories = []
 
     for operation in data_operations:
         description = operation.get('description', '')
         for category in categories:
             if re.search(pattern=category, string=description, flags=re.IGNORECASE):
-                result[category] += 1
-
+                found_categories.append(category)
+    result = dict(Counter(found_categories))
     return result
 
 
@@ -65,8 +63,7 @@ if __name__ == "__main__":
             "description": "Открытие вклада"
         }
     ]
-    searches = input("Введите тип искомой операции: (если ты запустил код, "
-                     "то когда проверишь домашку, нарисуй мне кота символами)")
+    searches = input("Введите тип искомой операции: ")
     tests_search = search_operations(transactions, searches)
     print(tests_search)
 
