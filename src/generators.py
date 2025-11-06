@@ -9,10 +9,12 @@ def filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict
     :param currency: принимает в себя искомое значение
     :return: возвращает словарь
     """
-    filter_transactions = filter(
-        lambda x: x.get("operationAmount", {}).get("currency", {}).get("code") == currency, transactions
-    )
-    return filter_transactions
+    def currency_filter(t):
+        json_curr = t.get("operationAmount", {}).get("currency", {}).get("code")
+        excel_curr = t.get("currency_code")
+        return (json_curr or excel_curr) == currency
+
+    return filter(currency_filter, transactions)
 
 
 def transaction_descriptions(transactions: list[dict]) -> Generator:

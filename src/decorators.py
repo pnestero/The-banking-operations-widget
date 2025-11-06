@@ -3,7 +3,8 @@ from typing import Any, Callable
 
 
 def log(filename: str | None = None) -> Callable:
-    """Декоратор для записи результата в консоль или в указанный файл, если таковой задан"""
+    """Декоратор для записи результата в консоль
+    или в указанный файл, если таковой задан"""
 
     def my_decorator(func: Callable) -> Callable:
         @wraps(func)

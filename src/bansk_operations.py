@@ -6,14 +6,18 @@ def search_operations(operations: list[dict], search: str) -> list[dict]:
     """
     Функция для поиска в списке словаре определенной
     операции по столбцу "description"
-    :param operations: список словарей
+    :param operations: список словарей с операциями
     :param search: ключевые слова для поиска
     :return: список словарей с результатами поиска
     """
+    if not operations or not search:
+        return []
     search_result = []
     for operation in operations:
-        if re.search(pattern=search, string=operation["description"], flags=re.IGNORECASE):
+        description = operation.get("description", "")
+        if isinstance(description, str) and search.lower() in description.lower():
             search_result.append(operation)
+
     return search_result
 
 
@@ -25,6 +29,8 @@ def banking_operations(data_operations: list[dict], categories: list) -> dict[st
     :param categories: список категорий операций
     :return: словарь (ключ = названия категорий, значение = количество операций)
     """
+    if not data_operations or not categories:
+        return {}
     found_categories = []
 
     for operation in data_operations:
@@ -36,37 +42,37 @@ def banking_operations(data_operations: list[dict], categories: list) -> dict[st
     return result
 
 
-if __name__ == "__main__":
-    transactions = [
-        {
-            "id": 1,
-            "amount": 1000,
-            "currency": "RUB",
-            "description": "Перевод с карты на карту"
-        },
-        {
-            "id": 2,
-            "amount": 2000,
-            "currency": "USD",
-            "description": "Перевод с карты на карту"
-        },
-        {
-            "id": 3,
-            "amount": 1500,
-            "currency": "EUR",
-            "description": "Перевод с карты на карту"
-        },
-        {
-            "id": 4,
-            "amount": 500,
-            "currency": "RUB",
-            "description": "Открытие вклада"
-        }
-    ]
-    searches = input("Введите тип искомой операции: ")
-    tests_search = search_operations(transactions, searches)
-    print(tests_search)
-
-    categories_list = ["Перевод с карты на карту", "Открытие вклада", "Оплата услуг", "Перевод организации"]
-    tests_search_list = banking_operations(transactions, categories_list)
-    print(tests_search_list)
+# if __name__ == "__main__":
+    # transactions = [
+    #     {
+    #         "id": 1,
+    #         "amount": 1000,
+    #         "currency": "RUB",
+    #         "description": "Перевод с карты на карту"
+    #     },
+    #     {
+    #         "id": 2,
+    #         "amount": 2000,
+    #         "currency": "USD",
+    #         "description": "Перевод с карты на карту"
+    #     },
+    #     {
+    #         "id": 3,
+    #         "amount": 1500,
+    #         "currency": "EUR",
+    #         "description": "Перевод с карты на карту"
+    #     },
+    #     {
+    #         "id": 4,
+    #         "amount": 500,
+    #         "currency": "RUB",
+    #         "description": "Открытие вклада"
+    #     }
+    # ]
+    # searches = input("Введите тип искомой операции: ")
+    # tests_search = search_operations(transactions, searches)
+    # print(tests_search)
+    #
+    # categories_list = ["Перевод с карты на карту", "Открытие вклада", "Оплата услуг", "Перевод организации"]
+    # tests_search_list = banking_operations(transactions, categories_list)
+    # print(tests_search_list)

@@ -19,22 +19,18 @@ def get_transaction(file: str) -> list[Any] | bool | Any:
     file_exist = os.path.exists(file)
     if not file_exist:
         logger.error(f"Файл {file} не найден")
-        print("1")
         return []
     try:
         with open(file, "r", encoding="utf-8") as transaction:
             transaction = json.load(transaction)
             if not isinstance(transaction, list):
                 logger.error(f"Файл {file} не является списком")
-                print("2")
                 return []
             logger.info(f"Файл {file} открылся и информация записана")
             return transaction
     except json.JSONDecodeError as e:
-        print("3")
         logger.error(f"Ошибка декодирования в {file}, ошибка: {e}")
         return []
     except Exception as e:
-        print("4")
         logger.error(f"Неизвестная ошибка {e} при работе с файлом {file}")
         return []
