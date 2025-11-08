@@ -60,7 +60,7 @@ def main() -> None:
         if operation_status in ["executed", "canceled", "pending"]:
             filtered_data = filter_by_state(data, operation_status)  # type: ignore
         else:
-            print(f"Статус операции {operation_status} недоступен")
+            print(f"Статус операции {operation_status} недоступен ")
             continue
 
     # 3. Сортировка по дате
