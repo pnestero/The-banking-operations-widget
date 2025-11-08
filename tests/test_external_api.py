@@ -16,13 +16,13 @@ def test_currency_conversion(transactions: dict) -> None:
                 assert transactions_sum(" ") == 100
 
 
-def test_currency_conversion_status_code():
+def test_currency_conversion_status_code() -> None:
     """Проверка status_code != 200"""
     assert currency_conversion({}) == 0
 
 
 @patch("builtins.open", side_effect=json.JSONDecodeError("123", "321", 1))
-def test_decode_error(mock_open: Mock) -> None:
+def test_decode_error() -> None:
     """Тест на выброс ошибки при пустом словаре"""
     assert get_transaction(" ") == []
     with patch("os.path.exists") as mock_path_exists:

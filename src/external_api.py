@@ -13,8 +13,9 @@ def transactions_sum(file: str) -> float:
     """Принимает транзакции и возвращает их по валюте"""
     transactions_list = get_transaction(file)
     total_sum_rub = 0.0
-    for i, transaction in enumerate(transactions_list):
-        total_sum_rub += currency_conversion(transaction)
+    if isinstance(transactions_list, dict):
+        for i, transaction in enumerate(transactions_list):
+            total_sum_rub += currency_conversion(transaction)
     return total_sum_rub
 
 

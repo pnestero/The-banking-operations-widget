@@ -89,4 +89,3 @@ def transactions() -> list[dict[str, Any]]:
         {"id": 2, "operationAmount": {"amount": "200", "currency": {"code": "EUR"}}, "description": "Transfer"},
         {"id": 3, "operationAmount": {"amount": "150", "currency": {"code": "USD"}}, "description": "Refund"},
     ]
-

@@ -10,7 +10,7 @@ def filter_by_currency(transactions: list[dict], currency: str) -> Iterator[dict
     :return: возвращает словарь
     """
 
-    def currency_filter(t):
+    def currency_filter(t:dict) -> bool:
         json_curr = t.get("operationAmount", {}).get("currency", {}).get("code")
         excel_curr = t.get("currency_code")
         return (json_curr or excel_curr) == currency

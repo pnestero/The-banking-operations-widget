@@ -61,6 +61,7 @@ def test_filter_by_state_list(list_operation: list[dict]) -> None:
         )
         == list_operation
     )
+    assert filter_by_state([]) == []
 
 
 def test_sort_data_operation(sort_data_operation: Any) -> None:

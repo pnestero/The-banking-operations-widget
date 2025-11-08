@@ -30,13 +30,13 @@ def main() -> None:
         )
         if search_file == "1":
             print("Для обработки выбран JSON-файл")
-            data = get_transaction("D:/PythonProject/PythonProject_NPR/data/operations.json")
+            data = get_transaction("/data/operations.json")
         elif search_file == "2":
             print("Для обработки выбран CSV-файл")
-            data = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
+            data = read_csv_transactions("/transactions.csv")
         elif search_file == "3":
             print("Для обработки выбран XLSX-файл")
-            data = read_excel_transactions("D:/PythonProject/PythonProject_NPR/transactions_excel.xlsx")
+            data = read_excel_transactions("/transactions_excel.xlsx")
         else:
             print(f"Введено неверное значение {search_file}")
             continue
@@ -52,10 +52,13 @@ def main() -> None:
             input(
                 "Введите статус, по которому необходимо выполнить фильтрацию.\n"
                 "Доступные для фильтровки статусы: EXECUTED, CANCELED, PENDING\n"
-            ).strip().lower())
+            )
+            .strip()
+            .lower()
+        )
 
         if operation_status in ["executed", "canceled", "pending"]:
-            filtered_data = filter_by_state(data, operation_status)
+            filtered_data = filter_by_state(data, operation_status)  # type: ignore
         else:
             print(f"Статус операции {operation_status} недоступен")
             continue
@@ -120,6 +123,8 @@ def main() -> None:
     # 6. Вывод результатов
     print(f"\nРаспечатываю итоговый список транзакций...\n")
     print(f"Всего банковских операций в выборке: {len(final_data)}\n")
+    if len(final_data) == 0:
+        print("Не найдено ни одной транзакции, подходящей под ваши условия фильтрации")
 
     for transaction in final_data:
         # Форматирование времени
@@ -150,8 +155,10 @@ def main() -> None:
         try:
             print(f"Сумма: {transaction['amount']} {transaction["amount"]}\n")
         except KeyError:
-            print(f"Сумма: {transaction['operationAmount']['amount']}"
-                  f" {transaction["operationAmount"]["currency"]["name"]}\n")
+            print(
+                f"Сумма: {transaction['operationAmount']['amount']}"
+                f" {transaction["operationAmount"]["currency"]["name"]}\n"
+            )
 
 
 if __name__ == "__main__":
