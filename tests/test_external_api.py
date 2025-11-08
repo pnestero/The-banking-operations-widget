@@ -1,7 +1,7 @@
 import json
 from unittest.mock import Mock, mock_open, patch
 
-from src.external_api import transactions_sum, currency_conversion
+from src.external_api import currency_conversion, transactions_sum
 from src.utils import get_transaction
 
 
@@ -15,10 +15,10 @@ def test_currency_conversion(transactions: dict) -> None:
                 mock_requests.return_value.json.return_value = {"result": 0}
                 assert transactions_sum(" ") == 100
 
+
 def test_currency_conversion_status_code():
     """Проверка status_code != 200"""
     assert currency_conversion({}) == 0
-
 
 
 @patch("builtins.open", side_effect=json.JSONDecodeError("123", "321", 1))

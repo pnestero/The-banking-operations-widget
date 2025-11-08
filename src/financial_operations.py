@@ -35,6 +35,7 @@ def read_excel_transactions(filename_excel: str) -> list[Any] | str:
     except FileNotFoundError:
         return "Файл Excel не обнаружен или неверный формат файла"
 
+
 if __name__ == "__main__":
     # transactions_csv = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
     #
@@ -51,8 +52,6 @@ if __name__ == "__main__":
     #             print(f"   {key}: {value}")
     #         print(f"   {'─' * 50}")
 
-
     transactions_excel = read_excel_transactions("D:/PythonProject/PythonProject_NPR/transactions_excel.xlsx")
     print(transactions_excel)
     print(f"всего {len(transactions_excel)}")
-
