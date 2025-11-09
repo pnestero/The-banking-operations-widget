@@ -1,6 +1,6 @@
 import datetime
 
-from src.bansk_operations import search_operations
+from src.banks_operations import search_operations
 from src.financial_operations import read_csv_transactions, read_excel_transactions
 from src.generators import filter_by_currency
 from src.processing import filter_by_state, sort_by_date

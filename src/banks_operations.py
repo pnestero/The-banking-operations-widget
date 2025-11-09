@@ -1,5 +1,5 @@
 import re
-from typing import Counter
+from collections import Counter
 
 
 def search_operations(operations: list[dict], search: str) -> list[dict]:
