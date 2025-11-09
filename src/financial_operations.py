@@ -19,6 +19,8 @@ def read_csv_transactions(filename_csv: str) -> list[Any] | str:
         return transactions_csv_return
     except FileNotFoundError:
         return "Файл CSV не обнаружен или неверный формат файла"
+    except Exception as e:
+        return f"Ошибка при чтении CSV файла: {str(e)}"
 
 
 def read_excel_transactions(filename_excel: str) -> list[Any] | str:
@@ -32,3 +34,27 @@ def read_excel_transactions(filename_excel: str) -> list[Any] | str:
         return reader.to_dict("records")
     except FileNotFoundError:
         return "Файл Excel не обнаружен или неверный формат файла"
+
+
+if __name__ == "__main__":
+    transactions_csv = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
+
+    # if isinstance(transactions_csv, str):
+    #     print(f"Ошибка: {transactions_csv}")
+    # else:
+    #     print(f"\n{'=' * 80}")
+    #     print(f"НАЙДЕНО ТРАНЗАКЦИЙ: {len(transactions_csv)}")
+    #     print(f"{'=' * 80}")
+    #
+    #     for i, transaction in enumerate(transactions_csv, 1):
+    #         print(f"\n📋 ТРАНЗАКЦИЯ #{i}")
+    #         for key, value in transaction.items():
+    #             print(f"   {key}: {value}")
+    #         print(f"   {'─' * 50}")
+
+    transactions_excel = read_excel_transactions("D:/PythonProject/PythonProject_NPR/transactions_excel.xlsx")
+    # print(transactions_excel)
+    # print(transactions_csv)
+    print(f"всего {len(transactions_excel)}")
+    print(f"всего {len(transactions_csv)}")
+
