@@ -30,16 +30,20 @@ def main() -> None:
         )
         if search_file == "1":
             print("Для обработки выбран JSON-файл")
-            data = get_transaction("/data/operations.json")
+            data = get_transaction("D:/PythonProject/PythonProject_NPR/data/operations.json")
+
         elif search_file == "2":
             print("Для обработки выбран CSV-файл")
-            data = read_csv_transactions("/transactions.csv")
+            data = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
+
         elif search_file == "3":
             print("Для обработки выбран XLSX-файл")
-            data = read_excel_transactions("/transactions_excel.xlsx")
+            data = read_excel_transactions("D:/PythonProject/PythonProject_NPR/transactions_excel.xlsx")
+
         else:
             print(f"Введено неверное значение {search_file}")
             continue
+
 
     # 2. Фильтрация по статусу операции
     if data is None:
@@ -59,6 +63,7 @@ def main() -> None:
 
         if operation_status in ["executed", "canceled", "pending"]:
             filtered_data = filter_by_state(data, operation_status)  # type: ignore
+
         else:
             print(f"Статус операции {operation_status} недоступен ")
             continue
@@ -114,8 +119,10 @@ def main() -> None:
         if sorting_by_word in ["да"]:
             input_keyword = input("Введите слово для поиска в описании: ").strip().lower()
             final_data = search_operations(currency_data, input_keyword)
+            print(final_data)
         elif sorting_by_word in ["нет"]:
             final_data = currency_data
+            print(final_data)
         else:
             print("Неправильно выбрана команда")
             continue
@@ -152,8 +159,9 @@ def main() -> None:
             print(f"{mask_card_number(transaction_number_card_to)}")
 
         # Вывод суммы транзакций
+
         try:
-            print(f"Сумма: {transaction['amount']} {transaction["amount"]}\n")
+            print(f"Сумма: {transaction['amount']} {transaction["currency_code"]}\n")
         except KeyError:
             print(
                 f"Сумма: {transaction['operationAmount']['amount']}"

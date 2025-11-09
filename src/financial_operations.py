@@ -37,8 +37,8 @@ def read_excel_transactions(filename_excel: str) -> list[Any] | str:
 
 
 if __name__ == "__main__":
-    # transactions_csv = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
-    #
+    transactions_csv = read_csv_transactions("D:/PythonProject/PythonProject_NPR/transactions.csv")
+
     # if isinstance(transactions_csv, str):
     #     print(f"Ошибка: {transactions_csv}")
     # else:
@@ -53,5 +53,8 @@ if __name__ == "__main__":
     #         print(f"   {'─' * 50}")
 
     transactions_excel = read_excel_transactions("D:/PythonProject/PythonProject_NPR/transactions_excel.xlsx")
-    print(transactions_excel)
+    # print(transactions_excel)
+    # print(transactions_csv)
     print(f"всего {len(transactions_excel)}")
+    print(f"всего {len(transactions_csv)}")
+
